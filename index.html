@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width = device-width" charset="utf-8" />
+    <title>Grid Layout</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="Javascript/velocity.min.js" type="text/javascript"></script>
+    <script src="Javascript/velocity.ui.min.js" type="text/javascript"></script>
+    <script src="Javascript/layout.js" type="text/javascript"></script>    
+    
+    <link href="https://fonts.googleapis.com/css?family=Copse|Scope+One|Spectral+SC" rel="stylesheet">
+    <link href="Styles/layout.css" rel="stylesheet" />
+
+</head>
+<body>
+    
+    <div id="body-grid">
+
+        <header>
+            <div class="header-container">
+                <div class="header-section-left">   
+                    <img id="nav-arrow" src="SVG/leftArrow.svg" />
+                </div>
+                <div class="header-section-center">
+                    <h1>Grid and Flex Layout </h1>                    
+                </div>
+                <div class="header-section-right">
+                    <img id="aside-arrow" src="SVG/rightArrow.svg" />                    
+                </div>                
+            </div>
+        </header>
+
+        <nav>
+            <div class="nav-container">                
+                <ul>
+                    <li class="active">Home</li>
+                    <li>Thought</li>
+                    <li>Tasks</li>
+                    <li>Home</li>
+                    <li>Home</li>
+                </ul>
+            </div>            
+        </nav>
+
+        <article>
+            Article            
+        </article>
+
+        <aside>
+            <div class="aside-container">
+
+                <div class="aside-tabs">
+                    <ul>                        
+                        <li>thoughts</li>
+                        <li>tasks</li>
+                        <li>tools</li>
+                        <li>habits</li>
+                        <li><span>tasks</span></li>
+                        <li class="active">thoughts</li>
+                    </ul>
+                </div>
+
+                <div class="aside-content">
+                    <h2>Tool bar</h2>
+                    <p>
+                        This is where the tools will be kept.
+                        You can drag from here and place in centre
+                    </p>
+                </div>
+
+            </div>
+        </aside>
+
+        <footer>
+            <hr id="hr-footer" />
+            Developed by Dale Morgan
+        </footer>
+
+    </div>
+</body>
+
+</html>
