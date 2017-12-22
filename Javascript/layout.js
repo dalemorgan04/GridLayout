@@ -98,7 +98,9 @@ var layoutpubsub = {
     // ===== Navbar ===== //
 
     toggleNavbar: function () {
+
         var easing = '';
+
         if (layoutpubsub.navbarIsVisible) {
             layoutpubsub.navbarIsVisible = false;
             layoutpubsub.navbarWidth = '0px';
@@ -109,15 +111,18 @@ var layoutpubsub = {
             easing = 'ease-in';
             $('nav > .nav-container').show();
         }
-        $('nav > .nav-container').velocity('stop', true);
-        $('nav > .nav-container').velocity(
+        $('nav > .nav-container')
+            .velocity('stop', true)
+            .css({ 'overflow': 'hidden' })
+            .velocity(
             { width: layoutpubsub.navbarWidth },
             {
                 duration: layoutpubsub.setTransitionTime,
                 easing: easing,
                 complete: function () {
-                    if (layoutpubsub.navIsVisible) { $('.nav-container').hide(); }
-                    $('#body-grid').css('grid-template-columns', layoutpubsub.navbarWidth + ' auto ' + layoutpubsub.asideWidth);                    
+                    if (!layoutpubsub.navbarIsVisible) { $('nav > .nav-container').hide(); }
+                    $('#body-grid').css('grid-template-columns', layoutpubsub.navbarWidth + ' auto ' + layoutpubsub.asideWidth);   
+                    $('nav > .nav-container').css({ 'overflow': 'visible' })
                 }
             });
         $(document).trigger('navToggled');
@@ -176,7 +181,6 @@ var layoutpubsub = {
     toggleAside: function () {
 
         var easing = '';
-        var arrowAnimation = [];
 
         if (layoutpubsub.asideIsVisible) {
             layoutpubsub.asideIsVisible = false;
@@ -186,9 +190,9 @@ var layoutpubsub = {
             layoutpubsub.asideIsVisible = true;
             layoutpubsub.asideWidth = layoutpubsub.setAsideWidth;
             easing = 'ease-in';
-            $('.aside-container').show();
+            $('aside > .aside-container').show();
         }
-        $('.aside-container')
+        $('aside > .aside-container')
             .velocity('stop', true)         
             .css({'overflow':'hidden'})
             .velocity(
@@ -197,9 +201,9 @@ var layoutpubsub = {
                 duration: layoutpubsub.setTransitionTime,
                 easing: easing,
                 complete: function () {                                        
-                    if (!layoutpubsub.asideIsVisible ) {$('.aside-container').hide();}
+                    if (!layoutpubsub.asideIsVisible ) {$('aside > .aside-container').hide();}
                     $('#body-grid').css('grid-template-columns', layoutpubsub.navbarWidth + ' auto ' + layoutpubsub.asideWidth);
-                    $('.aside-container').css({ 'overflow': 'visible' })
+                    $('aside > .aside-container').css({ 'overflow': 'visible' })
                 }
             });
         $(document).trigger('asideToggled');
